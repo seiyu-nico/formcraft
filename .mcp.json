@@ -1,0 +1,48 @@
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ],
+      "env": {}
+    },
+    "docs-storybook": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/storybookjs/storybook"
+      ],
+      "env": {}
+    },
+    "docs-react": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/facebook/react"
+      ],
+      "env": {}
+    },
+    "docs-tailwindcss": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/tailwindlabs/tailwindcss"
+      ],
+      "env": {}
+    },
+    "docs-vitest": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/vitest-dev/vitest"
+      ],
+      "env": {}
+    }
+  }
+}
