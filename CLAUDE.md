@@ -109,3 +109,4 @@ Expected scripts will include:
   - `technical-stack.md` - Technology choices and rationale
   - `development-environment.md` - Setup and tooling details
   - `package-publishing.md` - Publishing configuration and documentation strategy
+  - `component-development-guide.md` - Component development workflow and Filament reference guide
