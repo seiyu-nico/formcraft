@@ -34,6 +34,23 @@ FormCraft is a React-based form builder library inspired by Laravel Filament. It
 - **CSS**: Tailwind CSS
 - **TypeScript Config**: strict mode, ES2020 target, ESNext modules, bundler moduleResolution
 
+### MCP Servers
+
+This project has MCP servers configured in `.mcp.json` for accessing documentation:
+
+- **docs-react** - React documentation
+- **docs-storybook** - Storybook documentation
+- **docs-tailwindcss** - Tailwind CSS documentation
+- **docs-vitest** - Vitest documentation
+- **chrome-devtools** - Chrome DevTools integration
+
+**When to use MCP servers:**
+- Use MCP documentation servers when you need up-to-date API references or best practices
+- Consult React MCP server for component patterns and hooks usage
+- Reference Storybook MCP server when creating `.stories.tsx` files
+- Check Tailwind CSS MCP server for styling patterns and utility classes
+- Refer to Vitest MCP server for test writing and configuration
+
 ## Development Commands
 
 (To be added once package.json scripts are configured)
