@@ -6,6 +6,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 FormCraft is a React-based form builder library inspired by Laravel Filament. It's designed to be published as an npm package with a declarative API for building complex forms.
 
+### Reference Projects
+
+**Laravel Filament** (cloned in `.references/filament/`):
+- Primary inspiration for API design and form builder patterns
+- **Key directories to reference:**
+  - `packages/forms/src/Components/` - Form builder API and field components
+  - `packages/forms/src/Components/Field.php` - Validation implementation patterns
+  - `packages/forms/src/Components/Section.php`, `Grid.php` - Layout component designs
+  - `packages/forms/src/Components/Concerns/` - Traits for common functionality
+
+**When developing:**
+- Consult Filament's PHP code for API design patterns (e.g., fluent builder methods)
+- Adapt PHP patterns to React/TypeScript idioms
+- Maintain similar developer experience but use React best practices
+- Focus on type safety and React-specific features (hooks, context, etc.)
+
 ## Architecture
 
 ### Core Design Principles

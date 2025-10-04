@@ -2,6 +2,38 @@
 
 FormCraftの開発環境設定とツールチェーン。
 
+## 環境構築手順
+
+### 1. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 2. 参考プロジェクトのクローン
+
+Laravel Filamentのコードを参考にするため、プロジェクト内にクローンします。
+
+```bash
+mkdir -p .references
+cd .references
+git clone git@github.com:filamentphp/filament.git
+cd ..
+```
+
+**参考にすべきFilamentのディレクトリ:**
+- `packages/forms/src/Components/` - フォームビルダーAPIとフィールドコンポーネント
+- `packages/forms/src/Components/Field.php` - バリデーションの実装
+- `packages/forms/src/Components/Section.php`, `Grid.php` - レイアウトコンポーネント
+
+**注意:**
+- `.references/`は`.gitignore`に含まれているため、Git管理されません
+- Filamentは**MIT License**なので、以下を参考にします：
+  - API設計思想とパターン
+  - propsで渡せる項目（required, disabled, helperText, placeholder等）
+  - バリデーション機能の種類と実装方法
+  - レイアウトやグリッドシステムの設計
+
 ## TypeScript設定
 
 `tsconfig.json` の推奨設定：
