@@ -69,8 +69,8 @@ export const Toggle: React.FC<ToggleProps> = ({
                     ? 'bg-red-600 dark:bg-red-500'
                     : 'bg-primary-600 dark:bg-primary-500'
                   : error
-                  ? 'bg-red-100 dark:bg-red-900/20'
-                  : 'bg-gray-200 dark:bg-white/10'
+                    ? 'bg-red-100 dark:bg-red-900/20'
+                    : 'bg-gray-200 dark:bg-white/10'
               }
               ${
                 !disabled
@@ -106,25 +106,19 @@ export const Toggle: React.FC<ToggleProps> = ({
                 id={`${id}-label`}
                 htmlFor={id}
                 className={`text-sm font-medium leading-6 cursor-pointer ${
-                  disabled
-                    ? 'text-gray-500 dark:text-gray-400'
-                    : 'text-gray-950 dark:text-white'
+                  disabled ? 'text-gray-500 dark:text-gray-400' : 'text-gray-950 dark:text-white'
                 }`}
                 onClick={() => !disabled && handleChange()}
               >
                 {label}
-                {required && (
-                  <span className="text-red-600 dark:text-red-400 ml-1">*</span>
-                )}
+                {required && <span className="text-red-600 dark:text-red-400 ml-1">*</span>}
               </label>
 
               {helperText && !error && (
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{helperText}</p>
               )}
 
-              {error && (
-                <p className="text-sm text-red-600 dark:text-red-400 mt-1">{error}</p>
-              )}
+              {error && <p className="text-sm text-red-600 dark:text-red-400 mt-1">{error}</p>}
             </div>
           )}
         </div>
@@ -140,9 +134,7 @@ export const Toggle: React.FC<ToggleProps> = ({
           id={`${id}-label`}
           htmlFor={id}
           className={`block text-sm font-medium ${
-            disabled
-              ? 'text-gray-500 dark:text-gray-400'
-              : 'text-gray-950 dark:text-white'
+            disabled ? 'text-gray-500 dark:text-gray-400' : 'text-gray-950 dark:text-white'
           }`}
         >
           {label}
@@ -170,8 +162,8 @@ export const Toggle: React.FC<ToggleProps> = ({
                 ? 'bg-red-600 dark:bg-red-500'
                 : 'bg-primary-600 dark:bg-primary-500'
               : error
-              ? 'bg-red-100 dark:bg-red-900/20'
-              : 'bg-gray-200 dark:bg-white/10'
+                ? 'bg-red-100 dark:bg-red-900/20'
+                : 'bg-gray-200 dark:bg-white/10'
           }
           ${
             !disabled

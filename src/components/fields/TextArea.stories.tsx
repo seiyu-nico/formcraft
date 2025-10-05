@@ -119,7 +119,7 @@ export const WithMaxLength: Story = {
     name: 'tweet',
     label: 'Tweet',
     maxLength: 280,
-    placeholder: 'What\'s happening?',
+    placeholder: "What's happening?",
     helperText: 'Maximum 280 characters.',
   },
 };

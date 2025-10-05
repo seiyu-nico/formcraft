@@ -175,7 +175,9 @@ export const SuccessSection: Story = {
       </svg>
     ),
     iconColor: 'success',
-    children: <p className="text-sm">Everything is ready to go. You can start using your account now.</p>,
+    children: (
+      <p className="text-sm">Everything is ready to go. You can start using your account now.</p>
+    ),
   },
 };
 

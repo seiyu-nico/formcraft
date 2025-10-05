@@ -116,7 +116,7 @@ const CardComponent: React.FC<CardProps> = ({
   // Extract header and footer from children if they exist
   let headerContent: React.ReactNode = null;
   let footerContent: React.ReactNode = null;
-  let bodyContent: React.ReactNode[] = [];
+  const bodyContent: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {

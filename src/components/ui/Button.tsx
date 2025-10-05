@@ -49,12 +49,16 @@ const colorClasses: Record<ButtonColor, { filled: string; outlined: string }> = 
 };
 
 const badgeColorClasses: Record<ButtonColor, string> = {
-  primary: 'bg-primary-50 text-primary-600 ring-primary-600/10 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/30',
-  danger: 'bg-red-50 text-red-600 ring-red-600/10 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30',
+  primary:
+    'bg-primary-50 text-primary-600 ring-primary-600/10 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/30',
+  danger:
+    'bg-red-50 text-red-600 ring-red-600/10 dark:bg-red-400/10 dark:text-red-400 dark:ring-red-400/30',
   gray: 'bg-gray-50 text-gray-600 ring-gray-600/10 dark:bg-gray-400/10 dark:text-gray-400 dark:ring-gray-400/30',
   info: 'bg-blue-50 text-blue-600 ring-blue-600/10 dark:bg-blue-400/10 dark:text-blue-400 dark:ring-blue-400/30',
-  success: 'bg-green-50 text-green-600 ring-green-600/10 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30',
-  warning: 'bg-yellow-50 text-yellow-600 ring-yellow-600/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30',
+  success:
+    'bg-green-50 text-green-600 ring-green-600/10 dark:bg-green-400/10 dark:text-green-400 dark:ring-green-400/30',
+  warning:
+    'bg-yellow-50 text-yellow-600 ring-yellow-600/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:ring-yellow-400/30',
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -89,11 +93,11 @@ export const Button: React.FC<ButtonProps> = ({
     ${sizeClasses[size]}
     ${outlined ? colorClasses[color].outlined : colorClasses[color].filled}
     ${className}
-  `.trim().replace(/\s+/g, ' ');
+  `
+    .trim()
+    .replace(/\s+/g, ' ');
 
-  const iconElement = icon && (
-    <span className="inline-flex">{icon}</span>
-  );
+  const iconElement = icon && <span className="inline-flex">{icon}</span>;
 
   const loadingSpinner = loading && (
     <svg
@@ -102,14 +106,7 @@ export const Button: React.FC<ButtonProps> = ({
       fill="none"
       viewBox="0 0 24 24"
     >
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
       <path
         className="opacity-75"
         fill="currentColor"
@@ -123,7 +120,9 @@ export const Button: React.FC<ButtonProps> = ({
       className={`
         ms-auto inline-flex items-center justify-center rounded-md px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset
         ${badgeColorClasses[badgeColor || color]}
-      `.trim().replace(/\s+/g, ' ')}
+      `
+        .trim()
+        .replace(/\s+/g, ' ')}
     >
       {badge}
     </span>

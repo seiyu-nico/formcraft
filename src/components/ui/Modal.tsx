@@ -122,7 +122,8 @@ const ModalComponent: React.FC<ModalProps> = ({
   const headerTitle = (headerElement as any)?.props?.title ?? heading;
   const headerDescription = (headerElement as any)?.props?.description ?? description;
   const headerIcon = (headerElement as any)?.props?.icon ?? icon;
-  const headerIconColor: IconColor = ((headerElement as any)?.props?.iconColor ?? iconColor) as IconColor;
+  const headerIconColor: IconColor = ((headerElement as any)?.props?.iconColor ??
+    iconColor) as IconColor;
 
   // Extract footer data from Modal.Footer
   let footerTitle: string | undefined;
@@ -188,7 +189,10 @@ const ModalComponent: React.FC<ModalProps> = ({
     }
   };
 
-  const handleActionClick = async (action: { onClick: () => void | Promise<void>; close?: boolean }) => {
+  const handleActionClick = async (action: {
+    onClick: () => void | Promise<void>;
+    close?: boolean;
+  }) => {
     await action.onClick();
     if (action.close !== false) {
       onClose();
@@ -199,7 +203,11 @@ const ModalComponent: React.FC<ModalProps> = ({
 
   const hasContent = bodyContent.length > 0;
   const hasFooter =
-    !!footer || !!footerActionsContent || !!submitAction || !!cancelAction || footerActions.length > 0;
+    !!footer ||
+    !!footerActionsContent ||
+    !!submitAction ||
+    !!cancelAction ||
+    footerActions.length > 0;
   const hasHeader = !!headerTitle || !!headerDescription || !!headerIcon;
 
   const modal = (
@@ -266,7 +274,12 @@ const ModalComponent: React.FC<ModalProps> = ({
                   className="absolute top-1/2 -translate-y-1/2 end-6 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               )}
@@ -298,7 +311,10 @@ const ModalComponent: React.FC<ModalProps> = ({
                   </h2>
                 )}
                 {headerDescription && (
-                  <p id="modal-description" className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                  <p
+                    id="modal-description"
+                    className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+                  >
                     {headerDescription}
                   </p>
                 )}
@@ -307,16 +323,11 @@ const ModalComponent: React.FC<ModalProps> = ({
           )}
 
           {/* Content */}
-          {hasContent && (
-            <div className="flex flex-col gap-y-4 py-6 px-6">
-              {bodyContent}
-            </div>
-          )}
+          {hasContent && <div className="flex flex-col gap-y-4 py-6 px-6">{bodyContent}</div>}
 
           {/* Footer */}
           {hasFooter && (
             <div className="w-full border-t border-gray-950/5 dark:border-white/10 px-6 pb-6 pt-6">
-
               {footer ||
                 (footerActionsContent ? (
                   <div className="flex items-center justify-between gap-x-4">
@@ -327,7 +338,9 @@ const ModalComponent: React.FC<ModalProps> = ({
                         </h3>
                       )}
                       {footerDescription && (
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{footerDescription}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {footerDescription}
+                        </p>
                       )}
                     </div>
                     <div className="flex-shrink-0">
@@ -367,7 +380,13 @@ const ModalComponent: React.FC<ModalProps> = ({
                         onClick={() => handleActionClick(action)}
                         disabled={action.disabled}
                         size="md"
-                        color={action.color === 'danger' ? 'danger' : action.color === 'primary' ? 'primary' : 'gray'}
+                        color={
+                          action.color === 'danger'
+                            ? 'danger'
+                            : action.color === 'primary'
+                              ? 'primary'
+                              : 'gray'
+                        }
                         outlined={!action.color || action.color === 'secondary'}
                       >
                         {action.label}
@@ -379,7 +398,13 @@ const ModalComponent: React.FC<ModalProps> = ({
                         onClick={() => handleActionClick(cancelAction)}
                         disabled={cancelAction.disabled}
                         size="md"
-                        color={cancelAction.color === 'danger' ? 'danger' : cancelAction.color === 'primary' ? 'primary' : 'gray'}
+                        color={
+                          cancelAction.color === 'danger'
+                            ? 'danger'
+                            : cancelAction.color === 'primary'
+                              ? 'primary'
+                              : 'gray'
+                        }
                         outlined={!cancelAction.color || cancelAction.color === 'secondary'}
                       >
                         {cancelAction.label}

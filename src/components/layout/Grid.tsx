@@ -32,11 +32,7 @@ export const Grid: React.FC<GridProps> = ({ columns = 2, children, className = '
     return classes.join(' ');
   };
 
-  return (
-    <div className={`grid gap-6 ${getGridClasses()} ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`grid gap-6 ${getGridClasses()} ${className}`}>{children}</div>;
 };
 
 Grid.displayName = 'Grid';

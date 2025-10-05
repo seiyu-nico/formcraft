@@ -72,6 +72,14 @@ export interface SelectProps {
   /** 追加のselect属性 */
   extraInputAttributes?: Omit<
     InputHTMLAttributes<HTMLSelectElement>,
-    'name' | 'value' | 'required' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur' | 'multiple'
+    | 'name'
+    | 'value'
+    | 'required'
+    | 'disabled'
+    | 'readOnly'
+    | 'onChange'
+    | 'onFocus'
+    | 'onBlur'
+    | 'multiple'
   >;
 }

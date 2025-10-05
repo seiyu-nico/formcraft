@@ -103,7 +103,8 @@ export const Repeater: React.FC<RepeaterProps> = ({
     }
   };
 
-  const canAdd = addable && !disabled && !readOnly && (maxItems === undefined || items.length < maxItems);
+  const canAdd =
+    addable && !disabled && !readOnly && (maxItems === undefined || items.length < maxItems);
   const canDelete = (index: number) =>
     deletable && !disabled && !readOnly && (minItems === undefined || items.length > minItems);
 
@@ -139,7 +140,12 @@ export const Repeater: React.FC<RepeaterProps> = ({
                     title="Move up"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 15l7-7 7 7"
+                      />
                     </svg>
                   </button>
                 )}
@@ -154,7 +160,12 @@ export const Repeater: React.FC<RepeaterProps> = ({
                     title="Move down"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                 )}
@@ -241,7 +252,9 @@ export const Repeater: React.FC<RepeaterProps> = ({
         </button>
       )}
 
-      {helperText && !error && <p className="text-sm text-gray-600 dark:text-gray-400">{helperText}</p>}
+      {helperText && !error && (
+        <p className="text-sm text-gray-600 dark:text-gray-400">{helperText}</p>
+      )}
 
       {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
     </div>

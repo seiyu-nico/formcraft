@@ -23,17 +23,17 @@ const statusOptionsWithDescriptions = [
   {
     value: 'draft',
     label: 'Draft',
-    description: 'Not visible to the public'
+    description: 'Not visible to the public',
   },
   {
     value: 'reviewing',
     label: 'Reviewing',
-    description: 'Being reviewed by editors'
+    description: 'Being reviewed by editors',
   },
   {
     value: 'published',
     label: 'Published',
-    description: 'Visible to everyone'
+    description: 'Visible to everyone',
   },
 ];
 

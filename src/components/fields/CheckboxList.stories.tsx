@@ -24,22 +24,22 @@ const technologyOptionsWithDescriptions = [
   {
     value: 'react',
     label: 'React',
-    description: 'A JavaScript library for building user interfaces'
+    description: 'A JavaScript library for building user interfaces',
   },
   {
     value: 'vue',
     label: 'Vue.js',
-    description: 'The Progressive JavaScript Framework'
+    description: 'The Progressive JavaScript Framework',
   },
   {
     value: 'angular',
     label: 'Angular',
-    description: 'Platform for building mobile and desktop applications'
+    description: 'Platform for building mobile and desktop applications',
   },
   {
     value: 'svelte',
     label: 'Svelte',
-    description: 'Cybernetically enhanced web apps'
+    description: 'Cybernetically enhanced web apps',
   },
 ];
 

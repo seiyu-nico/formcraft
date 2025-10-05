@@ -8,8 +8,5 @@ export interface HiddenProps {
   value: string;
 
   /** 追加のinput属性 */
-  extraInputAttributes?: Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'name' | 'value'
-  >;
+  extraInputAttributes?: Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'name' | 'value'>;
 }

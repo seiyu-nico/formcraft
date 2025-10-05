@@ -47,10 +47,14 @@ export const MultipleHiddenFields: Story = {
           <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">user_id: 12345</code>
         </div>
         <div>
-          <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">session_token: abc-def-ghi</code>
+          <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">
+            session_token: abc-def-ghi
+          </code>
         </div>
         <div>
-          <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">redirect_url: /dashboard</code>
+          <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">
+            redirect_url: /dashboard
+          </code>
         </div>
       </div>
     </div>

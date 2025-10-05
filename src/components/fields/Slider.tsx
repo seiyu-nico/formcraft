@@ -66,7 +66,10 @@ export const Slider: React.FC<SliderProps> = ({
   return (
     <div className={className}>
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-gray-950 dark:text-white mb-2">
+        <label
+          htmlFor={id}
+          className="block text-sm font-medium text-gray-950 dark:text-white mb-2"
+        >
           {label}
           {required && <span className="text-red-600 dark:text-red-400 ml-1">*</span>}
         </label>

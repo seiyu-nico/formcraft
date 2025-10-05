@@ -23,9 +23,7 @@ export const Select: React.FC<SelectProps> = ({
   extraInputAttributes = {},
 }) => {
   const id = useId();
-  const [value, setValue] = useState<string | string[]>(
-    defaultValue ?? (multiple ? [] : '')
-  );
+  const [value, setValue] = useState<string | string[]>(defaultValue ?? (multiple ? [] : ''));
   const [error, setError] = useState<string | undefined>();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -76,8 +74,8 @@ export const Select: React.FC<SelectProps> = ({
                   ? 'ring-red-600 dark:ring-red-500 focus-within:ring-2 focus-within:ring-red-600 dark:focus-within:ring-red-500'
                   : 'focus-within:ring-2 focus-within:ring-primary-600 dark:focus-within:ring-primary-500'
                 : error
-                ? 'ring-red-600 dark:ring-red-500 bg-gray-50 dark:bg-transparent'
-                : 'bg-gray-50 dark:bg-transparent dark:ring-white/10'
+                  ? 'ring-red-600 dark:ring-red-500 bg-gray-50 dark:bg-transparent'
+                  : 'bg-gray-50 dark:bg-transparent dark:ring-white/10'
             }
           `}
         >
@@ -119,11 +117,7 @@ export const Select: React.FC<SelectProps> = ({
                 </option>
               )}
               {options.map((option) => (
-                <option
-                  key={option.value}
-                  value={option.value}
-                  disabled={option.disabled}
-                >
+                <option key={option.value} value={option.value} disabled={option.disabled}>
                   {option.label}
                 </option>
               ))}
@@ -160,9 +154,7 @@ export const Select: React.FC<SelectProps> = ({
           <p className="text-sm text-gray-600 dark:text-gray-400">{helperText}</p>
         )}
 
-        {error && (
-          <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-        )}
+        {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
       </div>
     );
   }

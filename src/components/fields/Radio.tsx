@@ -82,8 +82,8 @@ export const Radio: React.FC<RadioProps> = ({
                         ? 'ring-red-600 dark:ring-red-500 focus:ring-red-600 dark:focus:ring-red-500'
                         : 'ring-gray-950/10 focus:ring-primary-600 dark:ring-white/20 dark:focus:ring-primary-500'
                       : error
-                      ? 'ring-red-600 dark:ring-red-500'
-                      : 'ring-gray-950/10 dark:ring-white/10'
+                        ? 'ring-red-600 dark:ring-red-500'
+                        : 'ring-gray-950/10 dark:ring-white/10'
                   }
                   ${!isDisabled && !error ? 'text-primary-600 dark:text-primary-500' : ''}
                 `}

@@ -60,6 +60,15 @@ export interface RadioProps {
   /** 追加のinput属性 */
   extraInputAttributes?: Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'name' | 'value' | 'checked' | 'required' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'
+    | 'type'
+    | 'name'
+    | 'value'
+    | 'checked'
+    | 'required'
+    | 'disabled'
+    | 'readOnly'
+    | 'onChange'
+    | 'onFocus'
+    | 'onBlur'
   >;
 }

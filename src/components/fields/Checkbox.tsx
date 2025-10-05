@@ -70,8 +70,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                     ? 'ring-red-600 dark:ring-red-500 focus:ring-red-600 dark:focus:ring-red-500'
                     : 'ring-gray-950/10 focus:ring-primary-600 dark:ring-white/20 dark:focus:ring-primary-500'
                   : error
-                  ? 'ring-red-600 dark:ring-red-500'
-                  : 'ring-gray-950/10 dark:ring-white/10'
+                    ? 'ring-red-600 dark:ring-red-500'
+                    : 'ring-gray-950/10 dark:ring-white/10'
               }
               ${!disabled && !error ? 'text-primary-600 dark:text-primary-500' : ''}
             `}
@@ -82,24 +82,18 @@ export const Checkbox: React.FC<CheckboxProps> = ({
               <label
                 htmlFor={id}
                 className={`text-sm font-medium leading-6 cursor-pointer ${
-                  disabled
-                    ? 'text-gray-500 dark:text-gray-400'
-                    : 'text-gray-950 dark:text-white'
+                  disabled ? 'text-gray-500 dark:text-gray-400' : 'text-gray-950 dark:text-white'
                 }`}
               >
                 {label}
-                {required && (
-                  <span className="text-red-600 dark:text-red-400 ml-1">*</span>
-                )}
+                {required && <span className="text-red-600 dark:text-red-400 ml-1">*</span>}
               </label>
 
               {helperText && !error && (
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{helperText}</p>
               )}
 
-              {error && (
-                <p className="text-sm text-red-600 dark:text-red-400 mt-1">{error}</p>
-              )}
+              {error && <p className="text-sm text-red-600 dark:text-red-400 mt-1">{error}</p>}
             </div>
           )}
         </div>
@@ -114,9 +108,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         <label
           htmlFor={id}
           className={`block text-sm font-medium ${
-            disabled
-              ? 'text-gray-500 dark:text-gray-400'
-              : 'text-gray-950 dark:text-white'
+            disabled ? 'text-gray-500 dark:text-gray-400' : 'text-gray-950 dark:text-white'
           }`}
         >
           {label}
@@ -139,8 +131,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
                 ? 'ring-red-600 dark:ring-red-500 focus:ring-red-600 dark:focus:ring-red-500'
                 : 'ring-gray-950/10 focus:ring-primary-600 dark:ring-white/20 dark:focus:ring-primary-500'
               : error
-              ? 'ring-red-600 dark:ring-red-500'
-              : 'ring-gray-950/10 dark:ring-white/10'
+                ? 'ring-red-600 dark:ring-red-500'
+                : 'ring-gray-950/10 dark:ring-white/10'
           }
           ${!disabled && !error ? 'text-primary-600 dark:text-primary-500' : ''}
         `}

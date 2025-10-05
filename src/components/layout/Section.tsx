@@ -77,7 +77,9 @@ export const Section: React.FC<SectionProps> = ({
         >
           <div className={`flex items-start gap-x-3 ${aside ? 'lg:col-span-1' : ''}`}>
             {icon && (
-              <div className={`${iconColorClasses[iconColor]} ${iconSizeClasses[iconSize]} flex-shrink-0 mt-1`}>
+              <div
+                className={`${iconColorClasses[iconColor]} ${iconSizeClasses[iconSize]} flex-shrink-0 mt-1`}
+              >
                 {icon}
               </div>
             )}
@@ -90,9 +92,7 @@ export const Section: React.FC<SectionProps> = ({
               )}
 
               {description && (
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {description}
-                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>
               )}
             </div>
 

@@ -54,7 +54,12 @@ export const WithIcon: Story = {
             description="Your action was successful"
             icon={
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
             }
             iconColor="success"
@@ -160,8 +165,8 @@ export const LargeModal: Story = {
           <Modal.Header title="Large Modal" description="This modal has a larger width" />
           <p>This is a large modal with more content space.</p>
           <p className="mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
           </p>
         </Modal>
       </>
@@ -218,7 +223,12 @@ export const NoCloseOnClickOutside: Story = {
         >
           Open Modal (No Click Outside)
         </button>
-        <Modal open={open} onClose={() => setOpen(false)} closeOnClickOutside={false} closeOnEscape={false}>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          closeOnClickOutside={false}
+          closeOnEscape={false}
+        >
           <Modal.Header
             title="Important Modal"
             description="This modal cannot be closed by clicking outside"

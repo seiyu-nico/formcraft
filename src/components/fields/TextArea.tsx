@@ -101,8 +101,8 @@ export const TextArea: React.FC<TextAreaProps> = ({
                 ? 'ring-red-600 dark:ring-red-500 focus-within:ring-2 focus-within:ring-red-600 dark:focus-within:ring-red-500'
                 : 'focus-within:ring-2 focus-within:ring-primary-600 dark:focus-within:ring-primary-500'
               : error
-              ? 'ring-red-600 dark:ring-red-500 bg-gray-50 dark:bg-transparent'
-              : 'bg-gray-50 dark:bg-transparent dark:ring-white/10'
+                ? 'ring-red-600 dark:ring-red-500 bg-gray-50 dark:bg-transparent'
+                : 'bg-gray-50 dark:bg-transparent dark:ring-white/10'
           }
         `}
       >
