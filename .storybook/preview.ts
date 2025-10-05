@@ -10,6 +10,12 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      source: {
+        state: 'open',
+      },
+      codePanel: true,
+    },
   },
   decorators: [
     withThemeByClassName({
