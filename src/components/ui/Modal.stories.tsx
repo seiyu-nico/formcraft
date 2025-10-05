@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Modal } from './Modal';
 
 const meta = {
-  title: 'Components/Actions/Modal',
+  title: 'Components/UI/Modal',
   component: Modal,
   parameters: {
     layout: 'fullscreen',

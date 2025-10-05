@@ -3,3 +3,6 @@ export type { ModalProps, ModalAction, ModalWidth, ModalAlignment, IconColor } f
 
 export { ConfirmDialog } from './ConfirmDialog';
 export type { ConfirmDialogProps } from './ConfirmDialog';
+
+export { Button } from './Button';
+export type { ButtonProps, ButtonSize, ButtonColor } from './Button.types';
