@@ -21,3 +21,6 @@ export type { CheckboxListProps, CheckboxListOption } from './CheckboxList.types
 
 export { Hidden } from './Hidden';
 export type { HiddenProps } from './Hidden.types';
+
+export { Repeater } from './Repeater';
+export type { RepeaterProps, RepeaterItem } from './Repeater.types';
