@@ -23,7 +23,7 @@ const preview: Preview = {
         light: '',
         dark: 'dark',
       },
-      defaultTheme: 'light',
+      defaultTheme: 'dark',
     }),
   ],
 };
