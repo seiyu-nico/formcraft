@@ -27,8 +27,8 @@ export interface CardHeaderProps {
   /** Header title */
   title?: string;
 
-  /** Header subtitle */
-  subtitle?: string;
+  /** Header description */
+  description?: string;
 
   /** Header content and actions */
   children?: ReactNode;
@@ -43,8 +43,8 @@ export interface CardFooterProps {
   /** Footer title */
   title?: string;
 
-  /** Footer subtitle */
-  subtitle?: string;
+  /** Footer description */
+  description?: string;
 
   /** Footer content and actions */
   children?: ReactNode;
