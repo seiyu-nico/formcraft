@@ -48,8 +48,8 @@ export interface RepeaterProps {
   /** Function to generate item labels */
   itemLabel?: (item: RepeaterItem, index: number) => string;
 
-  /** Render function for item content */
-  children: (item: RepeaterItem, index: number, updateItem: (updates: Partial<RepeaterItem>) => void) => ReactNode;
+  /** Child form fields to repeat */
+  children: ReactNode;
 
   /** Validation function */
   validate?: (value: RepeaterItem[]) => string | undefined | Promise<string | undefined>;
