@@ -18,7 +18,7 @@ CardHeaderActions.displayName = 'Card.Header.Actions';
 const CardHeaderComponent: React.FC<CardHeaderProps> = ({ title, description, children }) => {
   // Extract actions from children
   let actionsContent: React.ReactNode = null;
-  let otherContent: React.ReactNode[] = [];
+  const otherContent: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child) && child.type === CardHeaderActions) {
@@ -66,7 +66,7 @@ CardFooterActions.displayName = 'Card.Footer.Actions';
 const CardFooterComponent: React.FC<CardFooterProps> = ({ title, description, children }) => {
   // Extract actions from children
   let actionsContent: React.ReactNode = null;
-  let otherContent: React.ReactNode[] = [];
+  const otherContent: React.ReactNode[] = [];
 
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child) && child.type === CardFooterActions) {

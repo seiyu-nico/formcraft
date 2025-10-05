@@ -6,6 +6,7 @@ import {
   ModalHeaderProps,
   ModalFooterProps,
   ModalFooterActionsProps,
+  IconColor,
 } from './Modal.types';
 import { Button } from './Button';
 
@@ -104,9 +105,11 @@ const ModalComponent: React.FC<ModalProps> = ({
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
       if (child.type === ModalHeader) {
-        headerElement = child as React.ReactElement<ModalHeaderProps>;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        headerElement = child as any as React.ReactElement<ModalHeaderProps>;
       } else if (child.type === ModalFooter) {
-        footerElement = child as React.ReactElement<ModalFooterProps>;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        footerElement = child as any as React.ReactElement<ModalFooterProps>;
       } else {
         bodyContent.push(child);
       }
@@ -116,17 +119,10 @@ const ModalComponent: React.FC<ModalProps> = ({
   });
 
   // Extract header data from Modal.Header
-  let headerTitle = heading;
-  let headerDescription = description;
-  let headerIcon = icon;
-  let headerIconColor = iconColor;
-
-  if (headerElement) {
-    headerTitle = headerElement.props.title || headerTitle;
-    headerDescription = headerElement.props.description || headerDescription;
-    headerIcon = headerElement.props.icon || headerIcon;
-    headerIconColor = headerElement.props.iconColor || headerIconColor;
-  }
+  const headerTitle = (headerElement as any)?.props?.title ?? heading;
+  const headerDescription = (headerElement as any)?.props?.description ?? description;
+  const headerIcon = (headerElement as any)?.props?.icon ?? icon;
+  const headerIconColor: IconColor = ((headerElement as any)?.props?.iconColor ?? iconColor) as IconColor;
 
   // Extract footer data from Modal.Footer
   let footerTitle: string | undefined;
@@ -134,13 +130,13 @@ const ModalComponent: React.FC<ModalProps> = ({
   let footerActionsContent: React.ReactNode = null;
 
   if (footerElement) {
-    footerTitle = footerElement.props.title;
-    footerDescription = footerElement.props.description;
+    footerTitle = (footerElement as any).props.title;
+    footerDescription = (footerElement as any).props.description;
 
     // Extract actions from footer children
-    React.Children.forEach(footerElement.props.children, (child) => {
+    React.Children.forEach((footerElement as any).props.children, (child: any) => {
       if (React.isValidElement(child) && child.type === ModalFooterActions) {
-        footerActionsContent = child.props.children;
+        footerActionsContent = (child as any).props.children;
       }
     });
   }
