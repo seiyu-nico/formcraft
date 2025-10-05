@@ -23,17 +23,11 @@ export interface ModalAction {
   close?: boolean;
 }
 
-export interface ModalProps {
-  /** Whether the modal is open */
-  open: boolean;
+export interface ModalHeaderProps {
+  /** Header title */
+  title?: string;
 
-  /** Callback when modal close is requested */
-  onClose: () => void;
-
-  /** Modal heading */
-  heading?: string;
-
-  /** Modal description */
+  /** Header description */
   description?: string;
 
   /** Icon (ReactNode) */
@@ -41,11 +35,47 @@ export interface ModalProps {
 
   /** Icon color */
   iconColor?: IconColor;
+}
+
+export interface ModalFooterProps {
+  /** Footer title */
+  title?: string;
+
+  /** Footer description */
+  description?: string;
+
+  /** Footer content and actions */
+  children?: ReactNode;
+}
+
+export interface ModalFooterActionsProps {
+  /** Actions content */
+  children: ReactNode;
+}
+
+export interface ModalProps {
+  /** Whether the modal is open */
+  open: boolean;
+
+  /** Callback when modal close is requested */
+  onClose: () => void;
+
+  /** Modal heading (deprecated: use Modal.Header instead) */
+  heading?: string;
+
+  /** Modal description (deprecated: use Modal.Header instead) */
+  description?: string;
+
+  /** Icon (ReactNode) (deprecated: use Modal.Header instead) */
+  icon?: ReactNode;
+
+  /** Icon color (deprecated: use Modal.Header instead) */
+  iconColor?: IconColor;
 
   /** Modal content */
   children?: ReactNode;
 
-  /** Footer content */
+  /** Footer content (deprecated: use Modal.Footer instead) */
   footer?: ReactNode;
 
   /** Modal width */
@@ -56,12 +86,6 @@ export interface ModalProps {
 
   /** Modal alignment */
   alignment?: ModalAlignment;
-
-  /** Sticky header */
-  stickyHeader?: boolean;
-
-  /** Sticky footer */
-  stickyFooter?: boolean;
 
   /** Close modal by clicking outside */
   closeOnClickOutside?: boolean;
@@ -75,16 +99,16 @@ export interface ModalProps {
   /** Autofocus */
   autofocus?: boolean;
 
-  /** Submit action */
+  /** Submit action (deprecated: use Modal.Footer.Actions instead) */
   submitAction?: ModalAction;
 
-  /** Cancel action */
+  /** Cancel action (deprecated: use Modal.Footer.Actions instead) */
   cancelAction?: ModalAction;
 
-  /** Extra footer actions */
+  /** Extra footer actions (deprecated: use Modal.Footer.Actions instead) */
   footerActions?: ModalAction[];
 
-  /** Footer actions alignment */
+  /** Footer actions alignment (deprecated: use Modal.Footer.Actions instead) */
   footerActionsAlignment?: 'start' | 'center' | 'end';
 
   /** Custom CSS classes */
