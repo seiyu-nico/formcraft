@@ -20,19 +20,19 @@ export const Default: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
-      <Button size="xs">Extra Small</Button>
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
-      <Button size="xl">Extra Large</Button>
+      <Button {...args} size="xs">Extra Small</Button>
+      <Button {...args} size="sm">Small</Button>
+      <Button {...args} size="md">Medium</Button>
+      <Button {...args} size="lg">Large</Button>
+      <Button {...args} size="xl">Extra Large</Button>
     </div>
   ),
 };
 
 export const Colors: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button color="primary">Primary</Button>
       <Button color="danger">Danger</Button>
@@ -45,7 +45,7 @@ export const Colors: Story = {
 };
 
 export const Outlined: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button color="primary" outlined>
         Primary
@@ -70,7 +70,7 @@ export const Outlined: Story = {
 };
 
 export const WithIcons: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button
         icon={
@@ -112,7 +112,7 @@ export const WithIcons: Story = {
 };
 
 export const IconOnly: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button
         size="sm"
@@ -160,7 +160,7 @@ export const IconOnly: Story = {
 };
 
 export const WithBadge: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button badge="3">Notifications</Button>
       <Button color="danger" badge="New">
@@ -174,7 +174,7 @@ export const WithBadge: Story = {
 };
 
 export const Loading: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button loading>Loading</Button>
       <Button color="danger" loading>
@@ -188,7 +188,7 @@ export const Loading: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button disabled>Disabled</Button>
       <Button color="danger" disabled>
@@ -202,7 +202,7 @@ export const Disabled: Story = {
 };
 
 export const LinkButton: Story = {
-  render: () => (
+  render: (args) => (
     <div className="flex flex-wrap items-center gap-4">
       <Button tag="a" href="https://example.com" target="_blank">
         External Link
@@ -230,7 +230,7 @@ export const LinkButton: Story = {
 };
 
 export const ComplexExample: Story = {
-  render: () => (
+  render: (args) => (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-3">
         <Button

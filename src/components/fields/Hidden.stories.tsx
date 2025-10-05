@@ -34,7 +34,7 @@ export const Default: Story = {
 };
 
 export const MultipleHiddenFields: Story = {
-  render: () => (
+  render: (args) => (
     <div className="space-y-2">
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
         Multiple hidden fields (check the DOM)

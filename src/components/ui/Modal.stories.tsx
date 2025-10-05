@@ -15,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -40,7 +40,7 @@ export const Default: Story = {
 };
 
 export const WithIcon: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -71,7 +71,7 @@ export const WithIcon: Story = {
 };
 
 export const WithActions: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -104,7 +104,7 @@ export const WithActions: Story = {
 };
 
 export const DangerModal: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -151,7 +151,7 @@ export const DangerModal: Story = {
 };
 
 export const LargeModal: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -181,7 +181,7 @@ export const LargeModal: Story = {
 };
 
 export const StickyHeaderFooter: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -222,7 +222,7 @@ export const StickyHeaderFooter: Story = {
 };
 
 export const WithFooterActions: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -267,7 +267,7 @@ export const WithFooterActions: Story = {
 };
 
 export const NoCloseOnClickOutside: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
 
     return (

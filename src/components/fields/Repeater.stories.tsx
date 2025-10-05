@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater name="items" label="Items">
         <TextInput name="value" label="Value" />
@@ -26,7 +26,7 @@ export const Default: Story = {
 };
 
 export const MultipleFields: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater name="members" label="Team Members">
         <div className="grid grid-cols-2 gap-4">
@@ -39,7 +39,7 @@ export const MultipleFields: Story = {
 };
 
 export const WithDefaultValues: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="contacts"
@@ -59,7 +59,7 @@ export const WithDefaultValues: Story = {
 };
 
 export const WithSelectFields: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater name="roles" label="User Roles">
         <div className="grid grid-cols-2 gap-4">
@@ -80,7 +80,7 @@ export const WithSelectFields: Story = {
 };
 
 export const WithMinItems: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="required_items"
@@ -96,7 +96,7 @@ export const WithMinItems: Story = {
 };
 
 export const WithMaxItems: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="limited_items"
@@ -111,7 +111,7 @@ export const WithMaxItems: Story = {
 };
 
 export const Required: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater name="required_repeater" label="Required Repeater" required>
         <TextInput name="value" label="Value" required />
@@ -121,7 +121,7 @@ export const Required: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="disabled_repeater"
@@ -139,7 +139,7 @@ export const Disabled: Story = {
 };
 
 export const ReadOnly: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="readonly_repeater"
@@ -157,7 +157,7 @@ export const ReadOnly: Story = {
 };
 
 export const NotReorderable: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="not_reorderable"
@@ -176,7 +176,7 @@ export const NotReorderable: Story = {
 };
 
 export const CustomItemLabel: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="custom_label"
@@ -194,7 +194,7 @@ export const CustomItemLabel: Story = {
 };
 
 export const WithValidation: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater
         name="validated_repeater"
@@ -213,7 +213,7 @@ export const WithValidation: Story = {
 };
 
 export const CustomAddLabel: Story = {
-  render: () => (
+  render: (args) => (
     <div className="w-[600px]">
       <Repeater name="custom_add_label" label="Tasks" addActionLabel="Add new task">
         <TextInput name="task" label="Task" />
