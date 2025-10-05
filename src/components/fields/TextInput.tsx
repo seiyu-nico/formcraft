@@ -95,7 +95,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       {label && (
         <label htmlFor={id} className="block text-sm font-medium text-gray-950 dark:text-white">
           {label}
-          {required && <span className="text-danger-600 dark:text-danger-400 ml-1">*</span>}
+          {required && <span className="text-red-600 dark:text-red-400 ml-1">*</span>}
         </label>
       )}
 
@@ -106,10 +106,10 @@ export const TextInput: React.FC<TextInputProps> = ({
           ${
             !disabled
               ? error
-                ? 'ring-danger-600 dark:ring-danger-500 focus-within:ring-2 focus-within:ring-danger-600 dark:focus-within:ring-danger-500'
+                ? 'ring-red-600 dark:ring-red-500 focus-within:ring-2 focus-within:ring-red-600 dark:focus-within:ring-red-500'
                 : 'focus-within:ring-2 focus-within:ring-primary-600 dark:focus-within:ring-primary-500'
               : error
-              ? 'ring-danger-600 dark:ring-danger-500 bg-gray-50 dark:bg-transparent'
+              ? 'ring-red-600 dark:ring-red-500 bg-gray-50 dark:bg-transparent'
               : 'bg-gray-50 dark:bg-transparent dark:ring-white/10'
           }
         `}
@@ -218,7 +218,7 @@ export const TextInput: React.FC<TextInputProps> = ({
       )}
 
       {error && (
-        <p className="text-sm text-danger-600 dark:text-danger-400">{error}</p>
+        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
       )}
     </div>
   );
