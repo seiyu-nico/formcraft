@@ -125,6 +125,7 @@ export const Section: React.FC<SectionProps> = ({
             ${compact ? 'px-4 pb-3 pt-3' : 'px-6 pb-4 pt-6'}
             ${hasHeader ? 'border-t border-gray-950/5 dark:border-white/10' : compact ? '' : 'pt-4'}
             ${aside && hasHeader ? 'lg:col-span-2' : ''}
+            space-y-4 text-gray-600 dark:text-gray-300
           `}
         >
           {children}

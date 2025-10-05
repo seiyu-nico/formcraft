@@ -120,24 +120,19 @@ export const ComplexLayout: Story = {
 };
 
 export const NestedGrids: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <Grid columns={2}>
-        <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-950 dark:text-white">Left Column</h3>
-          <Grid columns={1}>
-            <TextInput name="field1" label="Field 1" placeholder="Value 1" />
-            <TextInput name="field2" label="Field 2" placeholder="Value 2" />
-          </Grid>
-        </div>
-        <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-950 dark:text-white">Right Column</h3>
-          <Grid columns={1}>
-            <TextInput name="field3" label="Field 3" placeholder="Value 3" />
-            <TextInput name="field4" label="Field 4" placeholder="Value 4" />
-          </Grid>
-        </div>
-      </Grid>
-    </div>
-  ),
+  args: {
+    columns: 2,
+    children: (
+      <>
+        <Grid columns={1}>
+          <TextInput name="field1" label="Field 1" placeholder="Value 1" />
+          <TextInput name="field2" label="Field 2" placeholder="Value 2" />
+        </Grid>
+        <Grid columns={1}>
+          <TextInput name="field3" label="Field 3" placeholder="Value 3" />
+          <TextInput name="field4" label="Field 4" placeholder="Value 4" />
+        </Grid>
+      </>
+    ),
+  },
 };

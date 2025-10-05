@@ -30,13 +30,7 @@ type Story = StoryObj<typeof Section>;
 export const Default: Story = {
   args: {
     heading: 'User Information',
-    children: (
-      <div className="space-y-4">
-        <p className="text-gray-600 dark:text-gray-300">
-          This is the section content. You can put any components here.
-        </p>
-      </div>
-    ),
+    children: <p>This is the section content. You can put any components here.</p>,
   },
 };
 
@@ -44,11 +38,7 @@ export const WithDescription: Story = {
   args: {
     heading: 'Personal Details',
     description: 'Update your personal information and contact details.',
-    children: (
-      <div className="space-y-4">
-        <p className="text-gray-600 dark:text-gray-300">Section content goes here.</p>
-      </div>
-    ),
+    children: <p>Section content goes here.</p>,
   },
 };
 
@@ -67,11 +57,7 @@ export const WithIcon: Story = {
       </svg>
     ),
     iconColor: 'primary',
-    children: (
-      <div className="space-y-4">
-        <p className="text-gray-600 dark:text-gray-300">Profile information section.</p>
-      </div>
-    ),
+    children: <p>Profile information section.</p>,
   },
 };
 
@@ -80,13 +66,7 @@ export const Collapsible: Story = {
     heading: 'Advanced Settings',
     description: 'Configure advanced options (click to expand/collapse)',
     collapsible: true,
-    children: (
-      <div className="space-y-4">
-        <p className="text-gray-600 dark:text-gray-300">
-          These settings are collapsible. Click the header to toggle.
-        </p>
-      </div>
-    ),
+    children: <p>These settings are collapsible. Click the header to toggle.</p>,
   },
 };
 
@@ -96,13 +76,7 @@ export const CollapsedByDefault: Story = {
     description: 'Additional optional fields',
     collapsible: true,
     collapsed: true,
-    children: (
-      <div className="space-y-4">
-        <p className="text-gray-600 dark:text-gray-300">
-          This section is collapsed by default.
-        </p>
-      </div>
-    ),
+    children: <p>This section is collapsed by default.</p>,
   },
 };
 
@@ -111,11 +85,7 @@ export const Compact: Story = {
     heading: 'Compact Section',
     description: 'A more compact layout with reduced padding',
     compact: true,
-    children: (
-      <div className="space-y-2">
-        <p className="text-gray-600 dark:text-gray-300">This section uses compact spacing.</p>
-      </div>
-    ),
+    children: <p>This section uses compact spacing.</p>,
   },
 };
 
@@ -125,12 +95,10 @@ export const Aside: Story = {
     description: 'Update your account profile information and email address.',
     aside: true,
     children: (
-      <div className="space-y-4">
-        <p className="text-gray-600 dark:text-gray-300">
-          On large screens, the heading and description appear on the left,
-          while content appears on the right.
-        </p>
-      </div>
+      <p>
+        On large screens, the heading and description appear on the left, while content appears on
+        the right.
+      </p>
     ),
   },
 };
@@ -151,10 +119,10 @@ export const WithForm: Story = {
     ),
     iconColor: 'info',
     children: (
-      <div className="space-y-4">
+      <>
         <TextInput name="email" label="Email Address" type="email" placeholder="you@example.com" />
         <TextInput name="phone" label="Phone Number" type="tel" placeholder="+1 (555) 123-4567" />
-      </div>
+      </>
     ),
   },
 };
@@ -190,11 +158,9 @@ export const DangerSection: Story = {
     ),
     iconColor: 'danger',
     children: (
-      <div className="space-y-4">
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          Once you delete your account, there is no going back. Please be certain.
-        </p>
-      </div>
+      <p className="text-sm">
+        Once you delete your account, there is no going back. Please be certain.
+      </p>
     ),
   },
 };
@@ -209,46 +175,38 @@ export const SuccessSection: Story = {
       </svg>
     ),
     iconColor: 'success',
-    children: (
-      <div className="space-y-4">
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          Everything is ready to go. You can start using your account now.
-        </p>
-      </div>
-    ),
+    children: <p className="text-sm">Everything is ready to go. You can start using your account now.</p>,
   },
 };
 
 export const NestedSections: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <Section heading="Account Settings" description="Manage your account preferences">
-        <div className="space-y-4">
-          <Section heading="Profile" compact>
-            <Grid columns={{ default: 1, md: 2 }}>
-              <TextInput name="username" label="Username" placeholder="johndoe" />
-              <TextInput name="displayName" label="Display Name" placeholder="John Doe" />
-            </Grid>
-          </Section>
+  args: {
+    heading: 'Account Settings',
+    description: 'Manage your account preferences',
+    children: (
+      <>
+        <Section heading="Profile" compact>
+          <Grid columns={{ default: 1, md: 2 }}>
+            <TextInput name="username" label="Username" placeholder="johndoe" />
+            <TextInput name="displayName" label="Display Name" placeholder="John Doe" />
+          </Grid>
+        </Section>
 
-          <Section heading="Security" compact collapsible>
-            <div className="space-y-4">
-              <TextInput
-                name="currentPassword"
-                label="Current Password"
-                type="password"
-                placeholder="••••••••"
-              />
-              <TextInput
-                name="newPassword"
-                label="New Password"
-                type="password"
-                placeholder="••••••••"
-              />
-            </div>
-          </Section>
-        </div>
-      </Section>
-    </div>
-  ),
+        <Section heading="Security" compact collapsible>
+          <TextInput
+            name="currentPassword"
+            label="Current Password"
+            type="password"
+            placeholder="••••••••"
+          />
+          <TextInput
+            name="newPassword"
+            label="New Password"
+            type="password"
+            placeholder="••••••••"
+          />
+        </Section>
+      </>
+    ),
+  },
 };
