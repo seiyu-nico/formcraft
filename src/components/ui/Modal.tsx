@@ -1,6 +1,42 @@
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { ModalProps, ModalWidth } from './Modal.types';
+import {
+  ModalProps,
+  ModalWidth,
+  ModalHeaderProps,
+  ModalFooterProps,
+  ModalFooterActionsProps,
+} from './Modal.types';
+import { Button } from './Button';
+
+// Modal.Header subcomponent
+const ModalHeader: React.FC<ModalHeaderProps> = () => {
+  // This component doesn't render anything directly
+  // It's used as a marker for the parent Modal component
+  return null;
+};
+
+ModalHeader.displayName = 'Modal.Header';
+
+// Modal.Footer.Actions subcomponent
+const ModalFooterActions: React.FC<ModalFooterActionsProps> = ({ children }) => {
+  return <div className="flex items-center justify-end gap-3">{children}</div>;
+};
+
+ModalFooterActions.displayName = 'Modal.Footer.Actions';
+
+// Modal.Footer subcomponent
+const ModalFooterComponent: React.FC<ModalFooterProps> = () => {
+  // This component doesn't render anything directly
+  // It's used as a marker for the parent Modal component
+  return null;
+};
+
+ModalFooterComponent.displayName = 'Modal.Footer';
+
+const ModalFooter = Object.assign(ModalFooterComponent, {
+  Actions: ModalFooterActions,
+});
 
 const widthClasses: Record<ModalWidth, string> = {
   xs: 'max-w-xs',
@@ -35,16 +71,7 @@ const iconTextColorClasses = {
   info: 'text-blue-600 dark:text-blue-400',
 };
 
-const actionColorClasses = {
-  primary:
-    'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-400',
-  secondary:
-    'bg-white text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-white/5 dark:text-gray-300 dark:ring-white/10 dark:hover:bg-white/10',
-  danger:
-    'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 dark:bg-red-500 dark:hover:bg-red-400',
-};
-
-export const Modal: React.FC<ModalProps> = ({
+const ModalComponent: React.FC<ModalProps> = ({
   open,
   onClose,
   heading,
@@ -56,8 +83,6 @@ export const Modal: React.FC<ModalProps> = ({
   width = 'md',
   slideOver = false,
   alignment = 'center',
-  stickyHeader = false,
-  stickyFooter = false,
   closeOnClickOutside = true,
   closeOnEscape = true,
   showCloseButton = true,
@@ -70,6 +95,55 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
+
+  // Extract header and footer from children if they exist
+  let headerElement: React.ReactElement<ModalHeaderProps> | null = null;
+  let footerElement: React.ReactElement<ModalFooterProps> | null = null;
+  const bodyContent: React.ReactNode[] = [];
+
+  React.Children.forEach(children, (child) => {
+    if (React.isValidElement(child)) {
+      if (child.type === ModalHeader) {
+        headerElement = child as React.ReactElement<ModalHeaderProps>;
+      } else if (child.type === ModalFooter) {
+        footerElement = child as React.ReactElement<ModalFooterProps>;
+      } else {
+        bodyContent.push(child);
+      }
+    } else {
+      bodyContent.push(child);
+    }
+  });
+
+  // Extract header data from Modal.Header
+  let headerTitle = heading;
+  let headerDescription = description;
+  let headerIcon = icon;
+  let headerIconColor = iconColor;
+
+  if (headerElement) {
+    headerTitle = headerElement.props.title || headerTitle;
+    headerDescription = headerElement.props.description || headerDescription;
+    headerIcon = headerElement.props.icon || headerIcon;
+    headerIconColor = headerElement.props.iconColor || headerIconColor;
+  }
+
+  // Extract footer data from Modal.Footer
+  let footerTitle: string | undefined;
+  let footerDescription: string | undefined;
+  let footerActionsContent: React.ReactNode = null;
+
+  if (footerElement) {
+    footerTitle = footerElement.props.title;
+    footerDescription = footerElement.props.description;
+
+    // Extract actions from footer children
+    React.Children.forEach(footerElement.props.children, (child) => {
+      if (React.isValidElement(child) && child.type === ModalFooterActions) {
+        footerActionsContent = child.props.children;
+      }
+    });
+  }
 
   useEffect(() => {
     if (open) {
@@ -127,16 +201,17 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (!open) return null;
 
-  const hasContent = !!children;
-  const hasFooter = !!footer || !!submitAction || !!cancelAction || footerActions.length > 0;
-  const hasHeader = !!heading || !!description || !!icon;
+  const hasContent = bodyContent.length > 0;
+  const hasFooter =
+    !!footer || !!footerActionsContent || !!submitAction || !!cancelAction || footerActions.length > 0;
+  const hasHeader = !!headerTitle || !!headerDescription || !!headerIcon;
 
   const modal = (
     <div
       role="dialog"
       aria-modal="true"
-      aria-labelledby={heading ? 'modal-heading' : undefined}
-      aria-describedby={description ? 'modal-description' : undefined}
+      aria-labelledby={headerTitle ? 'modal-heading' : undefined}
+      aria-describedby={headerDescription ? 'modal-description' : undefined}
       className={`
         fixed inset-0 z-50
         ${slideOver ? 'slide-over' : ''}
@@ -172,8 +247,7 @@ export const Modal: React.FC<ModalProps> = ({
             ${width !== 'screen' ? widthClasses[width] : 'fixed inset-0'}
             ${hasContent ? 'modal-has-content' : ''}
             ${hasFooter ? 'modal-has-footer' : ''}
-            ${icon ? 'modal-has-icon' : ''}
-            ${stickyHeader ? 'modal-has-sticky-header' : ''}
+            ${headerIcon ? 'modal-has-icon' : ''}
             ${alignment === 'center' ? 'align-center' : alignment === 'start' ? 'align-start' : ''}
           `}
           role="dialog"
@@ -183,11 +257,8 @@ export const Modal: React.FC<ModalProps> = ({
           {hasHeader && (
             <div
               className={`
-                flex px-6 pt-6
-                ${alignment === 'center' ? 'flex-col text-center' : 'gap-x-5'}
-                ${icon && heading && !description && alignment === 'start' ? 'items-center' : ''}
-                ${stickyHeader ? 'sticky top-0 z-10 border-b border-gray-200 bg-white pb-6 dark:border-white/10 dark:bg-gray-900' : ''}
-                ${stickyHeader ? (slideOver ? 'rounded-none' : 'rounded-t-xl') : ''}
+                relative flex gap-x-5 px-6 pt-6
+                ${hasContent || hasFooter ? 'pb-6 border-b border-gray-950/5 dark:border-white/10' : ''}
               `}
             >
               {/* Close button */}
@@ -196,10 +267,7 @@ export const Modal: React.FC<ModalProps> = ({
                   type="button"
                   onClick={onClose}
                   tabIndex={-1}
-                  className={`
-                    absolute text-gray-400 hover:text-gray-500 dark:hover:text-gray-300
-                    ${slideOver ? 'end-6 top-6' : 'end-4 top-4'}
-                  `}
+                  className="absolute top-1/2 -translate-y-1/2 end-6 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
                 >
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -208,36 +276,34 @@ export const Modal: React.FC<ModalProps> = ({
               )}
 
               {/* Icon */}
-              {icon && (
-                <div className={alignment === 'center' ? 'mb-5 flex items-center justify-center' : ''}>
+              {headerIcon && (
+                <div className="flex-shrink-0 self-center">
                   <div
                     className={`
-                      rounded-full
-                      ${iconColorClasses[iconColor]}
-                      ${alignment === 'center' ? 'p-3' : 'p-2'}
-                      ${slideOver && alignment !== 'center' ? '-my-2 -ms-2' : ''}
+                      rounded-full p-2 -my-2 -ms-2
+                      ${iconColorClasses[headerIconColor]}
                     `}
                   >
-                    <div className={`w-6 h-6 ${iconTextColorClasses[iconColor]}`}>
-                      {icon}
+                    <div className={`w-6 h-6 ${iconTextColorClasses[headerIconColor]}`}>
+                      {headerIcon}
                     </div>
                   </div>
                 </div>
               )}
 
               {/* Heading & Description */}
-              <div className={showCloseButton && !icon ? 'me-6' : ''}>
-                {heading && (
+              <div className="flex-1 min-w-0 me-6">
+                {headerTitle && (
                   <h2
                     id="modal-heading"
                     className="text-base font-semibold leading-6 text-gray-950 dark:text-white"
                   >
-                    {heading}
+                    {headerTitle}
                   </h2>
                 )}
-                {description && (
+                {headerDescription && (
                   <p id="modal-description" className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-                    {description}
+                    {headerDescription}
                   </p>
                 )}
               </div>
@@ -246,83 +312,85 @@ export const Modal: React.FC<ModalProps> = ({
 
           {/* Content */}
           {hasContent && (
-            <div
-              className={`
-                flex flex-col gap-y-4 py-6
-                ${icon && alignment === 'start' && !stickyHeader ? 'ps-[5.25rem] pe-6' : 'px-6'}
-              `}
-            >
-              {children}
+            <div className="flex flex-col gap-y-4 py-6 px-6">
+              {bodyContent}
             </div>
           )}
 
           {/* Footer */}
           {hasFooter && (
-            <div
-              className={`
-                w-full
-                ${stickyFooter ? 'sticky bottom-0 border-t border-gray-200 bg-white py-5 dark:border-white/10 dark:bg-gray-900' : 'pb-6'}
-                ${stickyFooter && !slideOver && width !== 'screen' ? 'rounded-b-xl' : ''}
-                ${!hasContent && !stickyFooter ? 'mt-6' : ''}
-                ${alignment === 'center' ? 'align-center px-6' : footerActionsAlignment === 'center' ? 'align-center px-6' : footerActionsAlignment === 'end' ? 'align-end' : 'align-start'}
-                ${icon && alignment === 'start' && !stickyHeader && footerActionsAlignment !== 'center' ? 'ps-[5.25rem] pe-6' : !stickyFooter && !icon ? 'px-6' : ''}
-              `}
-            >
-              {footer || (
-                <div
-                  className={`
-                    gap-3
-                    ${footerActionsAlignment === 'center' ? 'flex flex-col-reverse' : footerActionsAlignment === 'end' ? 'flex flex-row-reverse flex-wrap items-center' : 'flex flex-wrap items-center'}
-                  `}
-                >
-                  {submitAction && (
-                    <button
-                      type="button"
-                      onClick={() => handleActionClick(submitAction)}
-                      disabled={submitAction.disabled}
-                      className={`
-                        px-4 py-2 text-sm font-medium rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-offset-2
-                        disabled:opacity-50 disabled:cursor-not-allowed
-                        ${actionColorClasses[submitAction.color || 'primary']}
-                      `}
-                    >
-                      {submitAction.label}
-                    </button>
-                  )}
-                  {footerActions.map((action, index) => (
-                    <button
-                      key={index}
-                      type="button"
-                      onClick={() => handleActionClick(action)}
-                      disabled={action.disabled}
-                      className={`
-                        px-4 py-2 text-sm font-medium rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-offset-2
-                        disabled:opacity-50 disabled:cursor-not-allowed
-                        ${actionColorClasses[action.color || 'secondary']}
-                      `}
-                    >
-                      {action.label}
-                    </button>
-                  ))}
-                  {cancelAction && (
-                    <button
-                      type="button"
-                      onClick={() => handleActionClick(cancelAction)}
-                      disabled={cancelAction.disabled}
-                      className={`
-                        px-4 py-2 text-sm font-medium rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-offset-2
-                        disabled:opacity-50 disabled:cursor-not-allowed
-                        ${actionColorClasses[cancelAction.color || 'secondary']}
-                      `}
-                    >
-                      {cancelAction.label}
-                    </button>
-                  )}
-                </div>
-              )}
+            <div className="w-full border-t border-gray-950/5 dark:border-white/10 px-6 pb-6 pt-6">
+
+              {footer ||
+                (footerActionsContent ? (
+                  <div className="flex items-center justify-between gap-x-4">
+                    <div className="grid gap-y-1 flex-1">
+                      {footerTitle && (
+                        <h3 className="text-base font-semibold leading-6 text-gray-950 dark:text-white">
+                          {footerTitle}
+                        </h3>
+                      )}
+                      {footerDescription && (
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{footerDescription}</p>
+                      )}
+                    </div>
+                    <div className="flex-shrink-0">
+                      <div
+                        className={`
+                          flex gap-3 flex-wrap items-center
+                          ${footerActionsAlignment === 'center' ? 'justify-center' : footerActionsAlignment === 'end' ? 'justify-end' : 'justify-start'}
+                        `}
+                      >
+                        {footerActionsContent}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className={`
+                      flex gap-3 flex-wrap items-center
+                      ${footerActionsAlignment === 'center' ? 'justify-center' : footerActionsAlignment === 'end' ? 'justify-end' : 'justify-start'}
+                    `}
+                  >
+                    {submitAction && (
+                      <Button
+                        type="button"
+                        onClick={() => handleActionClick(submitAction)}
+                        disabled={submitAction.disabled}
+                        size="md"
+                        color={submitAction.color === 'danger' ? 'danger' : 'primary'}
+                        outlined={false}
+                      >
+                        {submitAction.label}
+                      </Button>
+                    )}
+                    {footerActions.map((action, index) => (
+                      <Button
+                        key={index}
+                        type="button"
+                        onClick={() => handleActionClick(action)}
+                        disabled={action.disabled}
+                        size="md"
+                        color={action.color === 'danger' ? 'danger' : action.color === 'primary' ? 'primary' : 'gray'}
+                        outlined={!action.color || action.color === 'secondary'}
+                      >
+                        {action.label}
+                      </Button>
+                    ))}
+                    {cancelAction && (
+                      <Button
+                        type="button"
+                        onClick={() => handleActionClick(cancelAction)}
+                        disabled={cancelAction.disabled}
+                        size="md"
+                        color={cancelAction.color === 'danger' ? 'danger' : cancelAction.color === 'primary' ? 'primary' : 'gray'}
+                        outlined={!cancelAction.color || cancelAction.color === 'secondary'}
+                      >
+                        {cancelAction.label}
+                      </Button>
+                    )}
+                  </div>
+                ))}
             </div>
           )}
         </div>
@@ -333,4 +401,10 @@ export const Modal: React.FC<ModalProps> = ({
   return createPortal(modal, document.body);
 };
 
-Modal.displayName = 'Modal';
+ModalComponent.displayName = 'Modal';
+
+// Compound component with subcomponents
+export const Modal = Object.assign(ModalComponent, {
+  Header: ModalHeader,
+  Footer: ModalFooter,
+});

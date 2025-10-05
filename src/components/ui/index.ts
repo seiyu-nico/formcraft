@@ -1,5 +1,14 @@
 export { Modal } from './Modal';
-export type { ModalProps, ModalAction, ModalWidth, ModalAlignment, IconColor } from './Modal.types';
+export type {
+  ModalProps,
+  ModalHeaderProps,
+  ModalFooterProps,
+  ModalFooterActionsProps,
+  ModalAction,
+  ModalWidth,
+  ModalAlignment,
+  IconColor,
+} from './Modal.types';
 
 export { ConfirmDialog } from './ConfirmDialog';
 export type { ConfirmDialogProps } from './ConfirmDialog';
