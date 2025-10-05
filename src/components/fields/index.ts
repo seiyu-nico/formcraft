@@ -24,3 +24,6 @@ export type { HiddenProps } from './Hidden.types';
 
 export { Repeater } from './Repeater';
 export type { RepeaterProps, RepeaterItem } from './Repeater.types';
+
+export { Slider } from './Slider';
+export type { SliderProps } from './Slider.types';
