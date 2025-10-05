@@ -16,6 +16,16 @@ const preview: Preview = {
       },
       codePanel: true,
     },
+    options: {
+      storySort: {
+        order: [
+          'Introduction',
+          'Components',
+          ['Fields', 'Layout', 'UI'],
+          'Examples',
+        ],
+      },
+    },
   },
   decorators: [
     withThemeByClassName({
