@@ -18,7 +18,7 @@ export const Default: Story = {
   render: (args) => (
     <div className="w-[600px]">
       <Card {...args}>
-        <Card.Header title="Card Title" subtitle="This is a subtitle" />
+        <Card.Header title="Card Title" description="This is a description" />
         <p className="text-sm text-gray-600 dark:text-gray-400">
           This is the body of the card. It can contain any content you like.
         </p>
@@ -31,7 +31,7 @@ export const WithHeaderAction: Story = {
   render: (args) => (
     <div className="w-[600px]">
       <Card {...args}>
-        <Card.Header title="Project Settings" subtitle="Manage your project configuration">
+        <Card.Header title="Project Settings" description="Manage your project configuration">
           <Card.Header.Actions>
             <Button size="sm" outlined color="gray">
               Edit
@@ -59,7 +59,7 @@ export const WithFooter: Story = {
   render: (args) => (
     <div className="w-[600px]">
       <Card {...args}>
-        <Card.Header title="Delete Account" subtitle="This action cannot be undone" />
+        <Card.Header title="Delete Account" description="This action cannot be undone" />
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Are you sure you want to delete your account? This will permanently remove all your data.
         </p>
@@ -145,7 +145,7 @@ export const NotificationCard: Story = {
   render: (args) => (
     <div className="w-[500px]">
       <Card {...args}>
-        <Card.Header title="New message from Sarah" subtitle="2 minutes ago">
+        <Card.Header title="New message from Sarah" description="2 minutes ago">
           <Card.Header.Actions>
             <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -174,7 +174,7 @@ export const ComplexLayout: Story = {
   render: (args) => (
     <div className="w-[700px]">
       <Card {...args}>
-        <Card.Header title="Team Dashboard" subtitle="Overview of your team's performance">
+        <Card.Header title="Team Dashboard" description="Overview of your team's performance">
           <Card.Header.Actions>
             <div className="flex gap-2">
               <Button size="sm" outlined color="gray">
@@ -202,7 +202,7 @@ export const ComplexLayout: Story = {
             </div>
           </div>
         </div>
-        <Card.Footer subtitle="Last updated: 5 min ago">
+        <Card.Footer description="Last updated: 5 min ago">
           <Card.Footer.Actions>
             <Button size="sm" color="gray" outlined>
               View Details

@@ -15,7 +15,7 @@ const CardHeaderActions: React.FC<CardHeaderActionsProps> = ({ children }) => {
 CardHeaderActions.displayName = 'Card.Header.Actions';
 
 // Card.Header subcomponent
-const CardHeaderComponent: React.FC<CardHeaderProps> = ({ title, subtitle, children }) => {
+const CardHeaderComponent: React.FC<CardHeaderProps> = ({ title, description, children }) => {
   // Extract actions from children
   let actionsContent: React.ReactNode = null;
   let otherContent: React.ReactNode[] = [];
@@ -33,7 +33,7 @@ const CardHeaderComponent: React.FC<CardHeaderProps> = ({ title, subtitle, child
     return <>{otherContent}</>;
   }
 
-  // Default header layout with title/subtitle
+  // Default header layout with title/description
   return (
     <div className="flex items-center justify-between gap-x-4">
       <div className="grid flex-1 gap-y-1">
@@ -42,7 +42,7 @@ const CardHeaderComponent: React.FC<CardHeaderProps> = ({ title, subtitle, child
             {title}
           </h3>
         )}
-        {subtitle && <p className="text-sm text-gray-500 dark:text-gray-400">{subtitle}</p>}
+        {description && <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>}
       </div>
       {actionsContent && <div className="flex-shrink-0">{actionsContent}</div>}
     </div>
@@ -63,7 +63,7 @@ const CardFooterActions: React.FC<CardFooterActionsProps> = ({ children }) => {
 CardFooterActions.displayName = 'Card.Footer.Actions';
 
 // Card.Footer subcomponent
-const CardFooterComponent: React.FC<CardFooterProps> = ({ title, subtitle, children }) => {
+const CardFooterComponent: React.FC<CardFooterProps> = ({ title, description, children }) => {
   // Extract actions from children
   let actionsContent: React.ReactNode = null;
   let otherContent: React.ReactNode[] = [];
@@ -81,7 +81,7 @@ const CardFooterComponent: React.FC<CardFooterProps> = ({ title, subtitle, child
     return <>{otherContent}</>;
   }
 
-  // Default footer layout with title/subtitle
+  // Default footer layout with title/description
   return (
     <div className="flex items-start justify-between gap-x-4">
       <div className="grid flex-1 gap-y-1">
@@ -90,7 +90,7 @@ const CardFooterComponent: React.FC<CardFooterProps> = ({ title, subtitle, child
             {title}
           </h3>
         )}
-        {subtitle && <p className="text-sm text-gray-500 dark:text-gray-400">{subtitle}</p>}
+        {description && <p className="text-sm text-gray-500 dark:text-gray-400">{description}</p>}
       </div>
       {actionsContent && <div className="flex-shrink-0">{actionsContent}</div>}
     </div>
@@ -138,7 +138,7 @@ const CardComponent: React.FC<CardProps> = ({
       headerContent = header;
     } else if (heading || description || headerAction) {
       headerContent = (
-        <CardHeader title={heading} subtitle={description}>
+        <CardHeader title={heading} description={description}>
           {headerAction && <CardHeader.Actions>{headerAction}</CardHeader.Actions>}
         </CardHeader>
       );
