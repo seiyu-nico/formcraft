@@ -55,7 +55,7 @@ FormCraftで採用する技術スタックとその選定理由。
 Zodなどのバリデーションライブラリ用のアダプターを提供。
 
 ```tsx
-import { zodValidator } from '@formcraft/core/validators';
+import { zodValidator } from '@challtech/formcraft/validators';
 import { z } from 'zod';
 
 <TextInput

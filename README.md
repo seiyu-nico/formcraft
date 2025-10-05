@@ -21,7 +21,7 @@ FormCraftは、Laravel Filamentのフォームビルダーにインスパイア�
 > **⚠️ 注意**: このパッケージはまだnpmに公開されていません。現在開発中のため、以下のインストールコマンドは利用できません。
 
 ```bash
-npm install @formcraft/core
+npm install @challtech/formcraft
 ```
 
 ### Peer Dependencies
@@ -35,7 +35,7 @@ npm install react react-dom
 > **📝 注意**: 以下のコード例は将来的な使用イメージです。一部のコンポーネント（Form, Select, Checkbox）はまだ実装されていません。
 
 ```tsx
-import { Form, TextInput, Select, Checkbox } from '@formcraft/core';
+import { Form, TextInput, Select, Checkbox } from '@challtech/formcraft';
 
 function MyForm() {
   return (
@@ -108,7 +108,7 @@ function MyForm() {
 > **📝 注意**: Zodアダプターはまだ実装されていません。
 
 ```tsx
-import { zodValidator } from '@formcraft/core/validators';
+import { zodValidator } from '@challtech/formcraft/validators';
 import { z } from 'zod';
 
 <TextInput

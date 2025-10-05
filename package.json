@@ -1,5 +1,5 @@
 {
-  "name": "@formcraft/core",
+  "name": "@challtech/formcraft",
   "version": "0.0.1",
   "description": "React form builder library inspired by Laravel Filament",
   "main": "./dist/index.cjs",

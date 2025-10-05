@@ -130,7 +130,7 @@ Storybookの設定ファイル。
 
 ```json
 {
-  "name": "@formcraft/core",
+  "name": "@challtech/formcraft",
   "version": "0.0.1",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

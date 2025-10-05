@@ -8,7 +8,7 @@ npmパッケージとして公開するための設定。
 
 ```json
 {
-  "name": "@formcraft/core",
+  "name": "@challtech/formcraft",
   "version": "0.0.1",
   "description": "React form builder inspired by Laravel Filament",
   "main": "./dist/index.cjs",

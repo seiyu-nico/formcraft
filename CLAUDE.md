@@ -26,11 +26,11 @@ FormCraft is a React-based form builder library inspired by Laravel Filament. It
 
 ### Core Design Principles
 
-1. **Validation Strategy**: Function-based validation where users pass validation functions as props. Optional adapters (e.g., Zod) are provided via subpath exports (`@formcraft/core/validators`).
+1. **Validation Strategy**: Function-based validation where users pass validation functions as props. Optional adapters (e.g., Zod) are provided via subpath exports (`@challtech/formcraft/validators`).
 
-2. **Package Structure**: Uses **Scoped Package** (`@formcraft/core`) with **Subpath Exports** for namespace-like organization:
-   - `@formcraft/core` - Main components and hooks
-   - `@formcraft/core/validators` - Validation adapters (Zod, etc.)
+2. **Package Structure**: Uses **Scoped Package** (`@challtech/formcraft`) with **Subpath Exports** for namespace-like organization:
+   - `@challtech/formcraft` - Main components and hooks
+   - `@challtech/formcraft/validators` - Validation adapters (Zod, etc.)
    - Additional exports can be added as needed
 
 3. **File Co-location**: Test files (`*.test.tsx`) and Storybook stories (`*.stories.tsx`) are placed alongside their source files, not in separate directories.
