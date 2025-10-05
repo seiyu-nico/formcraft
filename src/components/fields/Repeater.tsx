@@ -182,7 +182,27 @@ export const Repeater: React.FC<RepeaterProps> = ({
             </div>
 
             {/* Item content */}
-            <div>{children(item, index, (updates) => handleUpdateItem(index, updates))}</div>
+            <div>
+              {React.Children.map(children, (child) => {
+                if (!React.isValidElement(child)) return child;
+
+                const fieldName = child.props.name;
+                if (!fieldName) return child;
+
+                const fullName = `${name}[${index}].${fieldName}`;
+                const value = item[fieldName];
+
+                return React.cloneElement(child as React.ReactElement<any>, {
+                  ...child.props,
+                  name: fullName,
+                  defaultValue: value !== undefined ? value : child.props.defaultValue,
+                  onChange: (newValue: any) => {
+                    handleUpdateItem(index, { [fieldName]: newValue });
+                    child.props.onChange?.(newValue);
+                  },
+                });
+              })}
+            </div>
 
             {/* Hidden inputs for form submission */}
             {Object.entries(item).map(([key, value]) => {
