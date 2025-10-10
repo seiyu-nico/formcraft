@@ -16,6 +16,12 @@ const colorClasses: Record<ButtonColor, { filled: string; outlined: string }> = 
     outlined:
       'text-primary-600 shadow-sm ring-1 ring-primary-600 hover:bg-primary-50 focus-visible:outline-primary-600 dark:text-primary-400 dark:ring-primary-400 dark:hover:bg-primary-400/10 dark:focus-visible:outline-primary-400',
   },
+  secondary: {
+    filled:
+      'bg-gray-600 text-white shadow-sm hover:bg-gray-500 focus-visible:outline-gray-500 dark:bg-gray-500 dark:hover:bg-gray-400 dark:focus-visible:outline-gray-400',
+    outlined:
+      'text-gray-600 shadow-sm ring-1 ring-gray-600 hover:bg-gray-50 focus-visible:outline-gray-600 dark:text-gray-400 dark:ring-gray-400 dark:hover:bg-gray-400/10 dark:focus-visible:outline-gray-400',
+  },
   danger: {
     filled:
       'bg-red-600 text-white shadow-sm hover:bg-red-500 focus-visible:outline-red-500 dark:bg-red-500 dark:hover:bg-red-400 dark:focus-visible:outline-red-400',
