@@ -7,7 +7,7 @@ export type {
   ModalAction,
   ModalWidth,
   ModalAlignment,
-  IconColor,
+  IconColor as ModalIconColor,
 } from './Modal.types';
 
 export { ConfirmDialog } from './ConfirmDialog';
@@ -49,3 +49,19 @@ export type {
   LoadingSpinnerSize,
   LoadingSpinnerColor,
 } from './LoadingSpinner.types';
+
+export { EmptyState } from './EmptyState';
+export type {
+  EmptyStateProps,
+  EmptyStateIconColor,
+  EmptyStateIconSize,
+} from './EmptyState.types';
+
+export { Hint } from './Hint';
+export type { HintProps, HintColor } from './Hint.types';
+
+export { Avatar } from './Avatar';
+export type { AvatarProps, AvatarSize } from './Avatar.types';
+
+export { Divider } from './Divider';
+export type { DividerProps, DividerOrientation } from './Divider.types';
