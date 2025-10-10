@@ -1,8 +1,8 @@
 import React from 'react';
-import { Section } from '../../src/components/layout/Section';
-import { Grid } from '../../src/components/layout/Grid';
-import { TextInput } from '../../src/components/fields/TextInput';
-import { TextArea } from '../../src/components/fields/TextArea';
+import { Section } from '../../src/components/organisms/Section';
+import { Grid } from '../../src/components/organisms/Grid';
+import { TextInput } from '../../src/components/molecules/TextInput';
+import { TextArea } from '../../src/components/molecules/TextArea';
 
 export const UserRegistrationForm: React.FC = () => {
   return (
