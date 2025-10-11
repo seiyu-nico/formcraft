@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '../../src/components/organisms/Section';
-import { Grid } from '../../src/components/organisms/Grid';
+import { Grid } from '../../src/components/molecules/Grid';
 import { TextInput } from '../../src/components/molecules/TextInput';
 import { TextArea } from '../../src/components/molecules/TextArea';
 

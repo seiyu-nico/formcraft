@@ -1,6 +1,6 @@
 import React from 'react';
-import { Modal } from '../molecules/Modal';
-import { IconColor } from '../molecules/Modal.types';
+import { Modal } from '../Modal';
+import { IconColor } from '../Modal/Modal.types';
 
 export interface ConfirmDialogProps {
   /** Whether the dialog is open */

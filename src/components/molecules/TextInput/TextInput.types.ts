@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { BaseFieldProps } from '../../types/field';
+import { BaseFieldProps } from '../../../types/field';
 
 export type TextInputType = 'text' | 'email' | 'password' | 'tel' | 'url' | 'number';
 

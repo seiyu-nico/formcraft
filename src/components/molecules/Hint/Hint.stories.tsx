@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Hint } from './Hint';
-import { Label } from './Label';
+import { Label } from '../../atoms/Label/Label';
 
 const meta = {
-  title: 'Atoms/Hint',
+  title: 'Molecules/Hint',
   component: Hint,
   parameters: {
     layout: 'padded',
