@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Grid } from './Grid';
-import { TextInput } from '../molecules/TextInput';
 
 const meta: Meta<typeof Grid> = {
-  title: 'Organisms/Grid',
+  title: 'Molecules/Grid',
   component: Grid,
   tags: ['autodocs'],
 };
@@ -79,59 +78,6 @@ export const Responsive: Story = {
         <SampleBox>Column 6</SampleBox>
         <SampleBox>Column 7</SampleBox>
         <SampleBox>Column 8</SampleBox>
-      </>
-    ),
-  },
-};
-
-export const WithFormFields: Story = {
-  args: {
-    columns: {
-      default: 1,
-      md: 2,
-    },
-    children: (
-      <>
-        <TextInput name="firstName" label="First Name" placeholder="John" />
-        <TextInput name="lastName" label="Last Name" placeholder="Doe" />
-        <TextInput name="email" label="Email" type="email" placeholder="john@example.com" />
-        <TextInput name="phone" label="Phone" type="tel" placeholder="+1 (555) 123-4567" />
-      </>
-    ),
-  },
-};
-
-export const ComplexLayout: Story = {
-  args: {
-    columns: {
-      default: 1,
-      lg: 3,
-    },
-    children: (
-      <>
-        <TextInput name="street" label="Street Address" placeholder="123 Main St" />
-        <TextInput name="city" label="City" placeholder="New York" />
-        <TextInput name="state" label="State" placeholder="NY" />
-        <TextInput name="zip" label="ZIP Code" placeholder="10001" />
-        <TextInput name="country" label="Country" placeholder="USA" />
-      </>
-    ),
-  },
-};
-
-export const NestedGrids: Story = {
-  args: {
-    columns: 2,
-    children: (
-      <>
-        <Grid columns={1}>
-          <TextInput name="field1" label="Field 1" placeholder="Value 1" />
-          <TextInput name="field2" label="Field 2" placeholder="Value 2" />
-        </Grid>
-        <Grid columns={1}>
-          <TextInput name="field3" label="Field 3" placeholder="Value 3" />
-          <TextInput name="field4" label="Field 4" placeholder="Value 4" />
-        </Grid>
       </>
     ),
   },
