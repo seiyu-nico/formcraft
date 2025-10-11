@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { Modal } from './Modal';
-import { Button } from '../atoms/Button';
+import { Button } from '../../atoms/Button/Button';
 
 const meta = {
   title: 'Molecules/Modal',

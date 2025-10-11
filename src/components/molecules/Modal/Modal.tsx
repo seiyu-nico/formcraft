@@ -8,7 +8,7 @@ import {
   ModalFooterActionsProps,
   IconColor,
 } from './Modal.types';
-import { Button } from '../atoms/Button';
+import { Button } from '../../atoms/Button';
 
 // Modal.Header subcomponent
 const ModalHeader: React.FC<ModalHeaderProps> = () => {

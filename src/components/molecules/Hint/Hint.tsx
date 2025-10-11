@@ -1,6 +1,6 @@
 import React from 'react';
 import { HintProps } from './Hint.types';
-import { Tooltip } from './Tooltip';
+import { Tooltip } from '../../atoms/Tooltip/Tooltip';
 
 const colorClasses = {
   gray: 'text-gray-600 dark:text-gray-400',

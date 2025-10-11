@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Section } from './Section';
-import { Grid } from './Grid';
-import { TextInput } from '../molecules/TextInput';
+import { Grid } from '../../molecules/Grid/Grid';
+import { TextInput } from '../../molecules/TextInput/TextInput';
 
 const meta: Meta<typeof Section> = {
   title: 'Organisms/Section',

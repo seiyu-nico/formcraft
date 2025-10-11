@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { SidebarProps, SidebarGroup as SidebarGroupType, SidebarItem } from './Sidebar.types';
-import { Badge } from '../atoms/Badge';
-import { Tooltip } from '../atoms/Tooltip';
+import { Badge } from '../../atoms/Badge';
+import { Tooltip } from '../../atoms/Tooltip';
 
 interface SidebarGroupProps {
   group: SidebarGroupType;

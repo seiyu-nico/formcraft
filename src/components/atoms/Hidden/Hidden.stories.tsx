@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Hidden } from './Hidden';
 
 const meta = {
-  title: 'Molecules/Hidden',
+  title: 'Atoms/Hidden',
   component: Hidden,
   parameters: {
     layout: 'centered',

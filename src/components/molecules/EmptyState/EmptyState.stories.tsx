@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { EmptyState } from './EmptyState';
-import { Button } from '../atoms/Button';
+import { Button } from '../../atoms/Button/Button';
 
 const meta = {
   title: 'Molecules/EmptyState',

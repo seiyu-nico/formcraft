@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TabsProps } from './Tabs.types';
-import { Badge } from '../atoms/Badge';
+import { Badge } from '../../atoms/Badge';
 
 export const Tabs: React.FC<TabsProps> = ({
   items,

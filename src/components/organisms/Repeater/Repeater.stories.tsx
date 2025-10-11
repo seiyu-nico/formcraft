@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Repeater } from './Repeater';
-import { TextInput } from '../molecules/TextInput';
-import { Select } from '../molecules/Select';
+import { TextInput } from '../../molecules/TextInput/TextInput';
+import { Select } from '../../molecules/Select/Select';
 
 const meta = {
   title: 'Organisms/Repeater',

@@ -1,5 +1,5 @@
 import { TextareaHTMLAttributes } from 'react';
-import { BaseFieldProps } from '../../types/field';
+import { BaseFieldProps } from '../../../types/field';
 
 export type ResizeOption = 'none' | 'both' | 'horizontal' | 'vertical';
 
