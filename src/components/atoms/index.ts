@@ -4,7 +4,7 @@ export * from './Button';
 export * from './Divider';
 export * from './ErrorText';
 export * from './HelperText';
-export * from './Hint';
+export * from './Hidden';
 export * from './Icon';
 export * from './Label';
 export * from './LoadingSpinner';
