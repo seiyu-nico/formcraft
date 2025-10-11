@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { LoadingSpinner } from './LoadingSpinner';
-import { Button } from './Button';
 
 const meta = {
   title: 'Atoms/LoadingSpinner',
@@ -107,14 +106,6 @@ export const AllColors: Story = {
       <LoadingSpinner color="info" size="lg" />
       <LoadingSpinner color="gray" size="lg" />
     </div>
-  ),
-};
-
-export const InButton: Story = {
-  render: () => (
-    <Button color="primary" loading>
-      処理中...
-    </Button>
   ),
 };
 
